@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?><bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:qbp="http://www.qbp-simulator.com/Schema201212" id="Definitions_1cgsfff" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="8.7.1" xmlns:qbpapi="http://www.qbp-simulator.com/ApiSchema201212">
+  <bpmn:collaboration id="Collaboration_0tpo4uf">
+    <bpmn:participant id="Participant_122vnvl" name="Proceso de Estudio de Crédito para banca Empresa y Gobierno" processRef="Process_1a1vehi"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1a1vehi" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_01apvxj">
+      <bpmn:lane id="Lane_08uvs67" name="Instancia de Atribución">
+        <bpmn:flowNodeRef>Activity_05cs5xd</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_0pkbi59</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_01gwss9" name="Area de grabación">
+        <bpmn:flowNodeRef>Activity_0429cth</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_1b76y5g" name="Gerente o Jefe de Riesgo">
+        <bpmn:flowNodeRef>Activity_1hrsfyz</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_0irmdyv" name="Analista de Credito">
+        <bpmn:flowNodeRef>Gateway_10vofgj</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1mv10tl</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1ujskh4</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_0hx6gb0" name="Analista Estructurador">
+        <bpmn:flowNodeRef>Activity_010uoaq</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_0aisv0u" name="Auxiliar">
+        <bpmn:flowNodeRef>Gateway_03ll6tq</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_12u218e</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_1idc0wq" name="Gerente de Cuenta">
+        <bpmn:flowNodeRef>Activity_1fym1sy</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0xn3gsq</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_1i20vle</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>StartEvent_00jrkar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1xkg98v</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:exclusiveGateway id="Gateway_03ll6tq" name="Documentación y Solicitud Completa">
+      <bpmn:incoming>Flow_0u8hn4f</bpmn:incoming>
+      <bpmn:outgoing>Flow_007e4js</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0b62oce</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Activity_12u218e" name="2. Revisar Documentación y Grupo de Riesgo">
+      <bpmn:incoming>Flow_0et6weo</bpmn:incoming>
+      <bpmn:outgoing>Flow_0u8hn4f</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_010uoaq" name="3. Clasificar y Asignar según tipo de estudio">
+      <bpmn:incoming>Flow_007e4js</bpmn:incoming>
+      <bpmn:outgoing>Flow_0pjgn8p</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_10vofgj" name="Estudio Simple?">
+      <bpmn:incoming>Flow_08xnl5c</bpmn:incoming>
+      <bpmn:outgoing>Flow_1s51wjt</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0uq4gg3</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Activity_1mv10tl" name="4. Reclasificar Cifras">
+      <bpmn:incoming>Flow_0pjgn8p</bpmn:incoming>
+      <bpmn:outgoing>Flow_08xnl5c</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_1ujskh4" name="6. Analizar y recomendar  la Solicitud">
+      <bpmn:incoming>Flow_1s51wjt</bpmn:incoming>
+      <bpmn:incoming>Flow_10st1qs</bpmn:incoming>
+      <bpmn:outgoing>Flow_0dyohl9</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_1hrsfyz" name="7.Conceptuar la Solicitud de Crédito y Emitir recomendación">
+      <bpmn:incoming>Flow_0dyohl9</bpmn:incoming>
+      <bpmn:outgoing>Flow_00mfq7t</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_05cs5xd" name="8. Revisar y aprobar Solitud">
+      <bpmn:incoming>Flow_00mfq7t</bpmn:incoming>
+      <bpmn:outgoing>Flow_1fmc8e4</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_1fym1sy" name="5. Gestionar Cuestionario Financiero">
+      <bpmn:incoming>Flow_0uq4gg3</bpmn:incoming>
+      <bpmn:outgoing>Flow_10st1qs</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_0pkbi59" name="Se aprueba?">
+      <bpmn:incoming>Flow_1fmc8e4</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ljbvpn</bpmn:outgoing>
+      <bpmn:outgoing>Flow_058oj86</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Activity_0429cth" name="9. Grabar aprobación en el sistema">
+      <bpmn:incoming>Flow_1ljbvpn</bpmn:incoming>
+      <bpmn:outgoing>Flow_14ilov0</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0xn3gsq" name="10. Notificar al Cliente">
+      <bpmn:incoming>Flow_14ilov0</bpmn:incoming>
+      <bpmn:outgoing>Flow_0n93lzc</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_1i20vle">
+      <bpmn:incoming>Flow_0n93lzc</bpmn:incoming>
+      <bpmn:incoming>Flow_058oj86</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:startEvent id="StartEvent_00jrkar">
+      <bpmn:outgoing>Flow_182w6r5</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_1xkg98v" name="1. Estructurar de la Solicitud">
+      <bpmn:incoming>Flow_0b62oce</bpmn:incoming>
+      <bpmn:incoming>Flow_182w6r5</bpmn:incoming>
+      <bpmn:outgoing>Flow_0et6weo</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_058oj86" name="No" sourceRef="Gateway_0pkbi59" targetRef="Event_1i20vle"/>
+    <bpmn:sequenceFlow id="Flow_0n93lzc" sourceRef="Activity_0xn3gsq" targetRef="Event_1i20vle"/>
+    <bpmn:sequenceFlow id="Flow_14ilov0" sourceRef="Activity_0429cth" targetRef="Activity_0xn3gsq"/>
+    <bpmn:sequenceFlow id="Flow_1ljbvpn" name="Si" sourceRef="Gateway_0pkbi59" targetRef="Activity_0429cth"/>
+    <bpmn:sequenceFlow id="Flow_1fmc8e4" sourceRef="Activity_05cs5xd" targetRef="Gateway_0pkbi59"/>
+    <bpmn:sequenceFlow id="Flow_00mfq7t" sourceRef="Activity_1hrsfyz" targetRef="Activity_05cs5xd"/>
+    <bpmn:sequenceFlow id="Flow_0dyohl9" sourceRef="Activity_1ujskh4" targetRef="Activity_1hrsfyz"/>
+    <bpmn:sequenceFlow id="Flow_10st1qs" sourceRef="Activity_1fym1sy" targetRef="Activity_1ujskh4"/>
+    <bpmn:sequenceFlow id="Flow_0uq4gg3" name="No" sourceRef="Gateway_10vofgj" targetRef="Activity_1fym1sy"/>
+    <bpmn:sequenceFlow id="Flow_1s51wjt" name="Si" sourceRef="Gateway_10vofgj" targetRef="Activity_1ujskh4"/>
+    <bpmn:sequenceFlow id="Flow_08xnl5c" sourceRef="Activity_1mv10tl" targetRef="Gateway_10vofgj"/>
+    <bpmn:sequenceFlow id="Flow_0pjgn8p" sourceRef="Activity_010uoaq" targetRef="Activity_1mv10tl"/>
+    <bpmn:sequenceFlow id="Flow_0b62oce" name="No" sourceRef="Gateway_03ll6tq" targetRef="Activity_1xkg98v"/>
+    <bpmn:sequenceFlow id="Flow_007e4js" name="Si" sourceRef="Gateway_03ll6tq" targetRef="Activity_010uoaq"/>
+    <bpmn:sequenceFlow id="Flow_0u8hn4f" sourceRef="Activity_12u218e" targetRef="Gateway_03ll6tq"/>
+    <bpmn:sequenceFlow id="Flow_0et6weo" sourceRef="Activity_1xkg98v" targetRef="Activity_12u218e"/>
+    <bpmn:sequenceFlow id="Flow_182w6r5" sourceRef="StartEvent_00jrkar" targetRef="Activity_1xkg98v"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0tpo4uf">
+      <bpmndi:BPMNShape id="Participant_122vnvl_di" bpmnElement="Participant_122vnvl" isHorizontal="true">
+        <dc:Bounds x="155" y="80" width="1105" height="960"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_08uvs67_di" bpmnElement="Lane_08uvs67" isHorizontal="true">
+        <dc:Bounds x="185" y="800" width="1075" height="120"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_01gwss9_di" bpmnElement="Lane_01gwss9" isHorizontal="true">
+        <dc:Bounds x="185" y="920" width="1075" height="120"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1b76y5g_di" bpmnElement="Lane_1b76y5g" isHorizontal="true">
+        <dc:Bounds x="185" y="650" width="1075" height="150"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0irmdyv_di" bpmnElement="Lane_0irmdyv" isHorizontal="true">
+        <dc:Bounds x="185" y="530" width="1075" height="120"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0hx6gb0_di" bpmnElement="Lane_0hx6gb0" isHorizontal="true">
+        <dc:Bounds x="185" y="390" width="1075" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0aisv0u_di" bpmnElement="Lane_0aisv0u" isHorizontal="true">
+        <dc:Bounds x="185" y="250" width="1075" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1idc0wq_di" bpmnElement="Lane_1idc0wq" isHorizontal="true">
+        <dc:Bounds x="185" y="80" width="1075" height="170"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_058oj86_di" bpmnElement="Flow_058oj86">
+        <di:waypoint x="905" y="870"/>
+        <di:waypoint x="1180" y="870"/>
+        <di:waypoint x="1180" y="210"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1188" y="842" width="15" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0n93lzc_di" bpmnElement="Flow_0n93lzc">
+        <di:waypoint x="1090" y="190"/>
+        <di:waypoint x="1162" y="190"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14ilov0_di" bpmnElement="Flow_14ilov0">
+        <di:waypoint x="930" y="980"/>
+        <di:waypoint x="1040" y="980"/>
+        <di:waypoint x="1040" y="230"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ljbvpn_di" bpmnElement="Flow_1ljbvpn">
+        <di:waypoint x="880" y="895"/>
+        <di:waypoint x="880" y="940"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="890" y="903" width="11" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fmc8e4_di" bpmnElement="Flow_1fmc8e4">
+        <di:waypoint x="800" y="870"/>
+        <di:waypoint x="855" y="870"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00mfq7t_di" bpmnElement="Flow_00mfq7t">
+        <di:waypoint x="750" y="780"/>
+        <di:waypoint x="750" y="830"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0dyohl9_di" bpmnElement="Flow_0dyohl9">
+        <di:waypoint x="750" y="630"/>
+        <di:waypoint x="750" y="700"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10st1qs_di" bpmnElement="Flow_10st1qs">
+        <di:waypoint x="670" y="180"/>
+        <di:waypoint x="750" y="180"/>
+        <di:waypoint x="750" y="550"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0uq4gg3_di" bpmnElement="Flow_0uq4gg3">
+        <di:waypoint x="620" y="565"/>
+        <di:waypoint x="620" y="220"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="628" y="543" width="15" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1s51wjt_di" bpmnElement="Flow_1s51wjt">
+        <di:waypoint x="645" y="590"/>
+        <di:waypoint x="700" y="590"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="667" y="572" width="11" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08xnl5c_di" bpmnElement="Flow_08xnl5c">
+        <di:waypoint x="540" y="590"/>
+        <di:waypoint x="595" y="590"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0pjgn8p_di" bpmnElement="Flow_0pjgn8p">
+        <di:waypoint x="490" y="510"/>
+        <di:waypoint x="490" y="550"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0b62oce_di" bpmnElement="Flow_0b62oce">
+        <di:waypoint x="490" y="295"/>
+        <di:waypoint x="490" y="200"/>
+        <di:waypoint x="410" y="200"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="498" y="263" width="15" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_007e4js_di" bpmnElement="Flow_007e4js">
+        <di:waypoint x="490" y="345"/>
+        <di:waypoint x="490" y="430"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="500" y="365" width="11" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0u8hn4f_di" bpmnElement="Flow_0u8hn4f">
+        <di:waypoint x="410" y="320"/>
+        <di:waypoint x="465" y="320"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0et6weo_di" bpmnElement="Flow_0et6weo">
+        <di:waypoint x="360" y="220"/>
+        <di:waypoint x="360" y="280"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_182w6r5_di" bpmnElement="Flow_182w6r5">
+        <di:waypoint x="257" y="180"/>
+        <di:waypoint x="310" y="180"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Gateway_03ll6tq_di" bpmnElement="Gateway_03ll6tq" isMarkerVisible="true">
+        <dc:Bounds x="465" y="295" width="50" height="50"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="517" y="310" width="86" height="40"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1tzxhli_di" bpmnElement="Activity_12u218e">
+        <dc:Bounds x="310" y="280" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0zyx2s4_di" bpmnElement="Activity_010uoaq">
+        <dc:Bounds x="440" y="430" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_10vofgj_di" bpmnElement="Gateway_10vofgj" isMarkerVisible="true">
+        <dc:Bounds x="595" y="565" width="50" height="50"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="580" y="625" width="80" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_01tront_di" bpmnElement="Activity_1mv10tl">
+        <dc:Bounds x="440" y="550" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_16fn2ga_di" bpmnElement="Activity_1ujskh4">
+        <dc:Bounds x="700" y="550" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_12pxhqk_di" bpmnElement="Activity_1hrsfyz">
+        <dc:Bounds x="700" y="700" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_18jipe4_di" bpmnElement="Activity_05cs5xd">
+        <dc:Bounds x="700" y="830" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_099j9gb_di" bpmnElement="Activity_1fym1sy">
+        <dc:Bounds x="570" y="140" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0pkbi59_di" bpmnElement="Gateway_0pkbi59" isMarkerVisible="true">
+        <dc:Bounds x="855" y="845" width="50" height="50"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="849" y="821" width="63" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ta8sc0_di" bpmnElement="Activity_0429cth">
+        <dc:Bounds x="830" y="940" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1t3mmo2_di" bpmnElement="Activity_0xn3gsq">
+        <dc:Bounds x="990" y="150" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1i20vle_di" bpmnElement="Event_1i20vle">
+        <dc:Bounds x="1162" y="172" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_00jrkar">
+        <dc:Bounds x="221" y="162" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0dqgrbc_di" bpmnElement="Activity_1xkg98v">
+        <dc:Bounds x="310" y="140" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+<qbp:processSimulationInfo id="qbp_9ae54e82-e5e4-17a4-4238-f8118edf10d2" processInstances="84" startDateTime="2021-08-17T14:00:00.000Z" currency="USD"><qbp:arrivalRateDistribution type="FIXED" mean="7200" arg1="NaN" arg2="NaN"><qbp:timeUnit>hours</qbp:timeUnit></qbp:arrivalRateDistribution><qbp:timetables><qbp:timetable id="QBP_DEFAULT_TIMETABLE" default="true" name="Default"><qbp:rules><qbp:rule fromTime="08:00:00.000+00:00" toTime="16:00:00.000+00:00" fromWeekDay="MONDAY" toWeekDay="FRIDAY"/></qbp:rules></qbp:timetable><qbp:timetable id="QBP_247_TIMETABLE" default="false" name="24/7"><qbp:rules><qbp:rule fromTime="00:00:00.000+00:00" toTime="23:59:59.999+00:00" fromWeekDay="MONDAY" toWeekDay="SUNDAY"/></qbp:rules></qbp:timetable></qbp:timetables><qbp:resources><qbp:resource id="Lane_08uvs67" name="Instancia de Atribución" totalAmount="1" costPerHour="15.6" timetableId="QBP_DEFAULT_TIMETABLE"/><qbp:resource id="Lane_01gwss9" name="Area de grabación" totalAmount="1" costPerHour="3.9" timetableId="QBP_DEFAULT_TIMETABLE"/><qbp:resource id="Lane_1b76y5g" name="Gerente o Jefe de Riesgo" totalAmount="1" costPerHour="12.5" timetableId="QBP_DEFAULT_TIMETABLE"/><qbp:resource id="Lane_0irmdyv" name="Analista de Credito" totalAmount="1" costPerHour="5.2" timetableId="QBP_DEFAULT_TIMETABLE"/><qbp:resource id="Lane_0hx6gb0" name="Analista Estructurador" totalAmount="1" costPerHour="7" timetableId="QBP_DEFAULT_TIMETABLE"/><qbp:resource id="Lane_0aisv0u" name="Auxiliar" totalAmount="1" costPerHour="3.9" timetableId="QBP_DEFAULT_TIMETABLE"/><qbp:resource id="Lane_1idc0wq" name="Gerente de Cuenta" totalAmount="1" costPerHour="10.9" timetableId="QBP_DEFAULT_TIMETABLE"/></qbp:resources><qbp:elements><qbp:element id="qbp_035d9e96-bb46-d0dc-5189-008c1b4897f2" elementId="Activity_1xkg98v" fixedCost="1" costThreshold="1" durationThreshold="30"><qbp:durationDistribution type="FIXED" mean="5400" arg1="NaN" arg2="NaN"><qbp:timeUnit>hours</qbp:timeUnit></qbp:durationDistribution><qbp:resourceIds><qbp:resourceId>Lane_1idc0wq</qbp:resourceId></qbp:resourceIds><qbp:durationThresholdTimeUnit>minutes</qbp:durationThresholdTimeUnit></qbp:element><qbp:element id="qbp_0e991830-c2f3-5c14-3f16-37cd9b26500d" elementId="Activity_0xn3gsq" fixedCost="1" costThreshold="1" durationThreshold="5"><qbp:durationDistribution type="FIXED" mean="300" arg1="NaN" arg2="NaN"><qbp:timeUnit>minutes</qbp:timeUnit></qbp:durationDistribution><qbp:resourceIds><qbp:resourceId>Lane_1idc0wq</qbp:resourceId></qbp:resourceIds><qbp:durationThresholdTimeUnit>minutes</qbp:durationThresholdTimeUnit></qbp:element><qbp:element id="qbp_ae25e7f3-edb4-395a-dbdb-c4b7769a239c" elementId="Activity_12u218e" fixedCost="1" costThreshold="1" durationThreshold="2"><qbp:durationDistribution type="FIXED" mean="7200" arg1="NaN" arg2="NaN"><qbp:timeUnit>hours</qbp:timeUnit></qbp:durationDistribution><qbp:resourceIds><qbp:resourceId>Lane_0aisv0u</qbp:resourceId></qbp:resourceIds><qbp:durationThresholdTimeUnit>hours</qbp:durationThresholdTimeUnit></qbp:element><qbp:element id="qbp_e8dfea3d-6706-b171-b724-f8393f6392f2" elementId="Activity_010uoaq" fixedCost="1" costThreshold="1" durationThreshold="1"><qbp:durationDistribution type="FIXED" mean="86400" arg1="NaN" arg2="NaN"><qbp:timeUnit>days</qbp:timeUnit></qbp:durationDistribution><qbp:resourceIds><qbp:resourceId>Lane_0hx6gb0</qbp:resourceId></qbp:resourceIds><qbp:durationThresholdTimeUnit>days</qbp:durationThresholdTimeUnit></qbp:element><qbp:element id="qbp_dc773b00-e50d-010b-1a01-abdff3ab6aa8" elementId="Activity_1mv10tl" fixedCost="1" costThreshold="1" durationThreshold="1"><qbp:durationDistribution type="FIXED" mean="7200" arg1="NaN" arg2="NaN"><qbp:timeUnit>hours</qbp:timeUnit></qbp:durationDistribution><qbp:resourceIds><qbp:resourceId>Lane_0irmdyv</qbp:resourceId></qbp:resourceIds><qbp:durationThresholdTimeUnit>hours</qbp:durationThresholdTimeUnit></qbp:element><qbp:element id="qbp_0c2317d0-8a04-0495-57a9-e2341343475e" elementId="Activity_1fym1sy" fixedCost="1" costThreshold="1" durationThreshold="1"><qbp:durationDistribution type="FIXED" mean="10800" arg1="NaN" arg2="NaN"><qbp:timeUnit>hours</qbp:timeUnit></qbp:durationDistribution><qbp:resourceIds><qbp:resourceId>Lane_1idc0wq</qbp:resourceId></qbp:resourceIds><qbp:durationThresholdTimeUnit>hours</qbp:durationThresholdTimeUnit></qbp:element><qbp:element id="qbp_9c30c82b-fa05-1361-5461-39c1118b537f" elementId="Activity_1ujskh4" fixedCost="1" costThreshold="1" durationThreshold="1"><qbp:durationDistribution type="FIXED" mean="259200" arg1="NaN" arg2="NaN"><qbp:timeUnit>days</qbp:timeUnit></qbp:durationDistribution><qbp:resourceIds><qbp:resourceId>Lane_0irmdyv</qbp:resourceId></qbp:resourceIds><qbp:durationThresholdTimeUnit>days</qbp:durationThresholdTimeUnit></qbp:element><qbp:element id="qbp_761e4da6-b578-02a8-f95d-5f3d5f98db36" elementId="Activity_1hrsfyz" fixedCost="1" costThreshold="1" durationThreshold="2"><qbp:durationDistribution type="FIXED" mean="14400" arg1="NaN" arg2="NaN"><qbp:timeUnit>hours</qbp:timeUnit></qbp:durationDistribution><qbp:resourceIds><qbp:resourceId>Lane_1b76y5g</qbp:resourceId></qbp:resourceIds><qbp:durationThresholdTimeUnit>hours</qbp:durationThresholdTimeUnit></qbp:element><qbp:element id="qbp_adda4a86-8700-1840-d436-a984d1fd1d57" elementId="Activity_05cs5xd" fixedCost="1" costThreshold="1" durationThreshold="30"><qbp:durationDistribution type="FIXED" mean="1800" arg1="NaN" arg2="NaN"><qbp:timeUnit>minutes</qbp:timeUnit></qbp:durationDistribution><qbp:resourceIds><qbp:resourceId>Lane_08uvs67</qbp:resourceId></qbp:resourceIds><qbp:durationThresholdTimeUnit>minutes</qbp:durationThresholdTimeUnit></qbp:element><qbp:element id="qbp_6f8e5333-949d-c556-476d-a64784469449" elementId="Activity_0429cth" fixedCost="1" costThreshold="1" durationThreshold="15"><qbp:durationDistribution type="FIXED" mean="900" arg1="NaN" arg2="NaN"><qbp:timeUnit>minutes</qbp:timeUnit></qbp:durationDistribution><qbp:resourceIds><qbp:resourceId>Lane_01gwss9</qbp:resourceId></qbp:resourceIds><qbp:durationThresholdTimeUnit>minutes</qbp:durationThresholdTimeUnit></qbp:element></qbp:elements><qbp:sequenceFlows><qbp:sequenceFlow elementId="Flow_007e4js" executionProbability="0.8"/><qbp:sequenceFlow elementId="Flow_0b62oce" executionProbability="0.2"/><qbp:sequenceFlow elementId="Flow_1s51wjt" executionProbability="0.4"/><qbp:sequenceFlow elementId="Flow_0uq4gg3" executionProbability="0.6"/><qbp:sequenceFlow elementId="Flow_1ljbvpn" executionProbability="0.97"/><qbp:sequenceFlow elementId="Flow_058oj86" executionProbability="0.03"/></qbp:sequenceFlows><qbp:statsOptions/></qbp:processSimulationInfo><qbpapi:Results xmlns:qbpapi="http://www.qbp-simulator.com/ApiSchema201212"><qbpapi:Results version="1.4"><qbpapi:process><qbpapi:minCycleTime>1793100</qbpapi:minCycleTime><qbpapi:averageCycleTime>47342353.571428575</qbpapi:averageCycleTime><qbpapi:maxCycleTime>92528400</qbpapi:maxCycleTime><qbpapi:totalCycleTime>94501200</qbpapi:totalCycleTime><qbpapi:minCost>641.75</qbpapi:minCost><qbpapi:averageCost>673.0275793650796</qbpapi:averageCost><qbpapi:maxCost>731.6333333333332</qbpapi:maxCost><qbpapi:totalCost>56534.31666666669</qbpapi:totalCost><qbpapi:minDuration>410700</qbpapi:minDuration><qbpapi:averageDuration>11264182.142857144</qbpapi:averageDuration><qbpapi:maxDuration>22026000</qbpapi:maxDuration><qbpapi:processInstances>84</qbpapi:processInstances></qbpapi:process><qbpapi:elements><qbpapi:element id="Process_1a1vehi.Activity_1xkg98v" name="1. Estructurar de la Solicitud"><qbpapi:duration><qbpapi:min>5400</qbpapi:min><qbpapi:max>32700</qbpapi:max><qbpapi:average>11018.446601941747</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>17.35</qbpapi:min><qbpapi:max>17.35</qbpapi:max><qbpapi:average>17.34999999999997</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>27300</qbpapi:max><qbpapi:average>5618.446601941748</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>0</qbpapi:min><qbpapi:max>230400</qbpapi:max><qbpapi:average>39704.854368932036</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>16.35</qbpapi:min><qbpapi:max>16.35</qbpapi:max><qbpapi:average>16.349999999999973</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>5370</qbpapi:min><qbpapi:max>32670</qbpapi:max><qbpapi:average>10988.446601941747</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>103</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.Activity_0xn3gsq" name="10. Notificar al Cliente"><qbpapi:duration><qbpapi:min>300</qbpapi:min><qbpapi:max>28200</qbpapi:max><qbpapi:average>1121.25</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>1.9083333333333332</qbpapi:min><qbpapi:max>1.9083333333333332</qbpapi:max><qbpapi:average>1.9083333333333319</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>27900</qbpapi:max><qbpapi:average>821.25</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>0</qbpapi:min><qbpapi:max>57600</qbpapi:max><qbpapi:average>720</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>0.9083333333333332</qbpapi:min><qbpapi:max>0.9083333333333332</qbpapi:max><qbpapi:average>0.908333333333332</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>295</qbpapi:min><qbpapi:max>28195</qbpapi:max><qbpapi:average>1116.25</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>80</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.Activity_12u218e" name="2. Revisar Documentación y Grupo de Riesgo"><qbpapi:duration><qbpapi:min>7200</qbpapi:min><qbpapi:max>126000</qbpapi:max><qbpapi:average>67971.84466019417</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>8.8</qbpapi:min><qbpapi:max>8.8</qbpapi:max><qbpapi:average>8.799999999999985</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>118800</qbpapi:max><qbpapi:average>60771.844660194176</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>0</qbpapi:min><qbpapi:max>460800</qbpapi:max><qbpapi:average>217537.8640776699</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>7.800000000000001</qbpapi:min><qbpapi:max>7.800000000000001</qbpapi:max><qbpapi:average>7.799999999999989</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>7198</qbpapi:min><qbpapi:max>125998</qbpapi:max><qbpapi:average>67969.84466019417</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>103</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.Activity_010uoaq" name="3. Clasificar y Asignar según tipo de estudio"><qbpapi:duration><qbpapi:min>86400</qbpapi:min><qbpapi:max>6530400</qbpapi:max><qbpapi:average>3296142.8571428573</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>169</qbpapi:min><qbpapi:max>169</qbpapi:max><qbpapi:average>169</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>6444000</qbpapi:max><qbpapi:average>3209742.8571428573</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>345600</qbpapi:min><qbpapi:max>20851200</qbpapi:max><qbpapi:average>10558628.57142857</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>168</qbpapi:min><qbpapi:max>168</qbpapi:max><qbpapi:average>168</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>86399</qbpapi:min><qbpapi:max>6530399</qbpapi:max><qbpapi:average>3296141.8571428573</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>84</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.Activity_1mv10tl" name="4. Reclasificar Cifras"><qbpapi:duration><qbpapi:min>7200</qbpapi:min><qbpapi:max>6991200</qbpapi:max><qbpapi:average>3277542.8571428573</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>11.4</qbpapi:min><qbpapi:max>11.4</qbpapi:max><qbpapi:average>11.399999999999986</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>6984000</qbpapi:max><qbpapi:average>3270342.8571428573</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>0</qbpapi:min><qbpapi:max>22464000</qbpapi:max><qbpapi:average>10470857.142857144</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>10.4</qbpapi:min><qbpapi:max>10.4</qbpapi:max><qbpapi:average>10.399999999999986</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>7199</qbpapi:min><qbpapi:max>6991199</qbpapi:max><qbpapi:average>3277541.8571428573</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>84</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.Activity_1fym1sy" name="5. Gestionar Cuestionario Financiero"><qbpapi:duration><qbpapi:min>10800</qbpapi:min><qbpapi:max>65100</qbpapi:max><qbpapi:average>25183.333333333332</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>33.7</qbpapi:min><qbpapi:max>33.7</qbpapi:max><qbpapi:average>33.70000000000003</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>54300</qbpapi:max><qbpapi:average>14383.333333333334</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>0</qbpapi:min><qbpapi:max>288000</qbpapi:max><qbpapi:average>84266.66666666667</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>32.7</qbpapi:min><qbpapi:max>32.7</qbpapi:max><qbpapi:average>32.70000000000003</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>10799</qbpapi:min><qbpapi:max>65099</qbpapi:max><qbpapi:average>25182.333333333332</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>54</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.Activity_1ujskh4" name="6. Analizar y recomendar  la Solicitud"><qbpapi:duration><qbpapi:min>259200</qbpapi:min><qbpapi:max>10850400</qbpapi:max><qbpapi:average>4559325</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>375.4</qbpapi:min><qbpapi:max>375.4</qbpapi:max><qbpapi:average>375.4000000000006</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>10591200</qbpapi:max><qbpapi:average>4300125</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>691200</qbpapi:min><qbpapi:max>34675200</qbpapi:max><qbpapi:average>14588571.42857143</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>374.4</qbpapi:min><qbpapi:max>374.4</qbpapi:max><qbpapi:average>374.4000000000006</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>259199</qbpapi:min><qbpapi:max>10850399</qbpapi:max><qbpapi:average>4559324</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>84</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.Activity_1hrsfyz" name="7.Conceptuar la Solicitud de Crédito y Emitir recomendación"><qbpapi:duration><qbpapi:min>14400</qbpapi:min><qbpapi:max>14400</qbpapi:max><qbpapi:average>14400</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>51</qbpapi:min><qbpapi:max>51</qbpapi:max><qbpapi:average>51</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>0</qbpapi:min><qbpapi:max>230400</qbpapi:max><qbpapi:average>41142.857142857145</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>50</qbpapi:min><qbpapi:max>50</qbpapi:max><qbpapi:average>50</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>14398</qbpapi:min><qbpapi:max>14398</qbpapi:max><qbpapi:average>14398</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>84</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.Activity_05cs5xd" name="8. Revisar y aprobar Solitud"><qbpapi:duration><qbpapi:min>1800</qbpapi:min><qbpapi:max>1800</qbpapi:max><qbpapi:average>1800</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>8.8</qbpapi:min><qbpapi:max>8.8</qbpapi:max><qbpapi:average>8.799999999999992</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>7.800000000000001</qbpapi:min><qbpapi:max>7.800000000000001</qbpapi:max><qbpapi:average>7.799999999999996</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>1770</qbpapi:min><qbpapi:max>1770</qbpapi:max><qbpapi:average>1770</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>84</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.Activity_0429cth" name="9. Grabar aprobación en el sistema"><qbpapi:duration><qbpapi:min>900</qbpapi:min><qbpapi:max>900</qbpapi:max><qbpapi:average>900</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>1.975</qbpapi:min><qbpapi:max>1.975</qbpapi:max><qbpapi:average>1.9749999999999972</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>0</qbpapi:min><qbpapi:max>230400</qbpapi:max><qbpapi:average>51120</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>0.9750000000000001</qbpapi:min><qbpapi:max>0.9750000000000001</qbpapi:max><qbpapi:average>0.9749999999999999</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>885</qbpapi:min><qbpapi:max>885</qbpapi:max><qbpapi:average>885</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>80</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.Gateway_03ll6tq" name="Documentación y Solicitud Completa"><qbpapi:duration><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>103</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.Event_1i20vle" name="EVENT 13 END"><qbpapi:duration><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>84</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.StartEvent_00jrkar" name="EVENT 14 START"><qbpapi:duration><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>84</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.Gateway_10vofgj" name="Estudio Simple?"><qbpapi:duration><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>84</qbpapi:count></qbpapi:element><qbpapi:element id="Process_1a1vehi.Gateway_0pkbi59" name="Se aprueba?"><qbpapi:duration><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:duration><qbpapi:cost><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:cost><qbpapi:waitingTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:waitingTime><qbpapi:idleTime><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:idleTime><qbpapi:costOverThreshold><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:costOverThreshold><qbpapi:durationOverThreshold><qbpapi:min>0</qbpapi:min><qbpapi:max>0</qbpapi:max><qbpapi:average>0</qbpapi:average></qbpapi:durationOverThreshold><qbpapi:count>84</qbpapi:count></qbpapi:element></qbpapi:elements><qbpapi:resources><qbpapi:resource id="Lane_1idc0wq"><qbpapi:utilization>0.051703909124846674</qbpapi:utilization></qbpapi:resource><qbpapi:resource id="Lane_0hx6gb0"><qbpapi:utilization>0.3225427977174551</qbpapi:utilization></qbpapi:resource><qbpapi:resource id="Lane_1b76y5g"><qbpapi:utilization>0.05375713295290918</qbpapi:utilization></qbpapi:resource><qbpapi:resource id="Lane_01gwss9"><qbpapi:utilization>0.0031998293424350703</qbpapi:utilization></qbpapi:resource><qbpapi:resource id="Lane_0aisv0u"><qbpapi:utilization>0.03295824222708122</qbpapi:utilization></qbpapi:resource><qbpapi:resource id="Lane_08uvs67"><qbpapi:utilization>0.006719641619113648</qbpapi:utilization></qbpapi:resource><qbpapi:resource id="Lane_0irmdyv"><qbpapi:utilization>0.9945069596288197</qbpapi:utilization></qbpapi:resource></qbpapi:resources></qbpapi:Results><qbpapi:CycleTimesData><qbpapi:min>1793100</qbpapi:min><qbpapi:max>92528400</qbpapi:max><qbpapi:binWidth>9073530</qbpapi:binWidth><qbpapi:values><qbpapi:value>9</qbpapi:value><qbpapi:value>8</qbpapi:value><qbpapi:value>8</qbpapi:value><qbpapi:value>9</qbpapi:value><qbpapi:value>7</qbpapi:value><qbpapi:value>9</qbpapi:value><qbpapi:value>8</qbpapi:value><qbpapi:value>9</qbpapi:value><qbpapi:value>8</qbpapi:value><qbpapi:value>9</qbpapi:value></qbpapi:values></qbpapi:CycleTimesData><qbpapi:CycleTimesInTimetableData><qbpapi:min>410700</qbpapi:min><qbpapi:max>22026000</qbpapi:max><qbpapi:binWidth>2161530</qbpapi:binWidth><qbpapi:values><qbpapi:value>9</qbpapi:value><qbpapi:value>8</qbpapi:value><qbpapi:value>8</qbpapi:value><qbpapi:value>9</qbpapi:value><qbpapi:value>7</qbpapi:value><qbpapi:value>9</qbpapi:value><qbpapi:value>8</qbpapi:value><qbpapi:value>9</qbpapi:value><qbpapi:value>8</qbpapi:value><qbpapi:value>9</qbpapi:value></qbpapi:values></qbpapi:CycleTimesInTimetableData><qbpapi:WaitingTimesData><qbpapi:min>27900</qbpapi:min><qbpapi:max>21607200</qbpapi:max><qbpapi:binWidth>2157930</qbpapi:binWidth><qbpapi:values><qbpapi:value>9</qbpapi:value><qbpapi:value>8</qbpapi:value><qbpapi:value>8</qbpapi:value><qbpapi:value>9</qbpapi:value><qbpapi:value>7</qbpapi:value><qbpapi:value>9</qbpapi:value><qbpapi:value>8</qbpapi:value><qbpapi:value>9</qbpapi:value><qbpapi:value>8</qbpapi:value><qbpapi:value>9</qbpapi:value></qbpapi:values></qbpapi:WaitingTimesData><qbpapi:CostsData><qbpapi:min>641.75</qbpapi:min><qbpapi:max>731.6333333333332</qbpapi:max><qbpapi:binWidth>9</qbpapi:binWidth><qbpapi:values><qbpapi:value>26</qbpapi:value><qbpapi:value>47</qbpapi:value><qbpapi:value>2</qbpapi:value><qbpapi:value>5</qbpapi:value><qbpapi:value>4</qbpapi:value></qbpapi:values></qbpapi:CostsData></qbpapi:Results></bpmn:definitions>
